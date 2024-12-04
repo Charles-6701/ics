@@ -713,10 +713,10 @@ int main()
     mkdir("./Ans",S_IRWXU);
 
     phase1ans();
-    // phase2ans();
-    // phase3ans();
-    // phase4ans();
-    // phase5ans();
+    phase2ans();
+    phase3ans();
+    phase4ans();
+    phase5ans();
 
     char duwee[1000]={0};
     char pack[1001]={"tar cvf ./Ans/"};
