@@ -139,7 +139,7 @@ void phase1ans()
     read_phase("phase1.o");
     
     char text[50005];
-    exec("gcc -m32 -no-pie -o link main.o phase1.o",text);
+    exec("gcc -m64 -no-pie -o link main.o phase1.o",text);
     exec("./link",text);
 
     char ascii_text[MAXSIZE];
@@ -160,7 +160,7 @@ void phase1ans()
     write_phase("./Ans/phase1.o");
 
     memset(text,0,sizeof(text));
-    exec("gcc -m32 -no-pie -o link main.o ./Ans/phase1.o",text);
+    exec("gcc -m64 -no-pie -o link main.o ./Ans/phase1.o",text);
     exec("./link",text);
     printf("phase1 return: %s",text);
 }
@@ -245,7 +245,7 @@ void phase2ans()
 
             char text[MAXSIZE];
             memset(text,0,sizeof(text));
-            exec("gcc -m32 -no-pie -o link main.o ./Ans/phase2.o",text);
+            exec("gcc -m64 -no-pie -o link main.o ./Ans/phase2.o",text);
             exec("./link",text);
             printf("phase2 return: %s",text);
 
@@ -315,7 +315,7 @@ void phase3ans()
     fclose(ptr);
 
     char gcc_text[1000];
-    exec("gcc -m32 -c phase3_patch.c",gcc_text);
+    exec("gcc -m64 -c phase3_patch.c",gcc_text);
 
     memset(phase_text,0,sizeof(phase_text));    
     read_phase("phase3_patch.o");
@@ -334,7 +334,7 @@ void phase3ans()
     write_phase("./Ans/phase3_patch.o");
 
     char e_text[MAXSIZE];
-    exec("gcc -m32 -no-pie -o link main.o phase3.o ./Ans/phase3_patch.o",e_text);
+    exec("gcc -m64 -no-pie -o link main.o phase3.o ./Ans/phase3_patch.o",e_text);
     exec("./link",e_text);
     printf("phase3 return: %s",e_text);
 
@@ -434,7 +434,7 @@ void phase4ans()
 
 
     char e_text[200];
-    exec("gcc -m32 -no-pie -o link main.o ./Ans/phase4.o",e_text);
+    exec("gcc -m64 -no-pie -o link main.o ./Ans/phase4.o",e_text);
     memset(e_text,0,sizeof(e_text));
     exec("./link",e_text);
     printf("phase4 return: %s\n",e_text);
@@ -694,7 +694,7 @@ void phase5ans()
     //printf("%s\n",phase_text);
     write_phase("./Ans/phase5.o");
     char e_text[200] = {0};
-    exec("gcc -m32 -no-pie -o link main.o ./Ans/phase5.o",e_text);
+    exec("gcc -m64 -no-pie -o link main.o ./Ans/phase5.o",e_text);
     memset(e_text,0,sizeof(e_text));
     exec("./link",e_text);
     printf("phase5 return: %s\n",e_text);
@@ -729,4 +729,3 @@ int main()
 
     return 0;
 }
-
